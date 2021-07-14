@@ -1,7 +1,7 @@
 import './App.css';
 import {useState, useEffect} from "react";
 import {ArticleList} from "./components/ArticleList";
-import {Form} from "./components/Form";
+import Form from "./components/Form";
 
 function App() {
 
@@ -25,12 +25,12 @@ function App() {
     }
 
     return (
-      <div className="App">
-        <h1>React and Django</h1>
-        <ArticleList articles={articles} editBtn={editBtn}/>
-        <Form article={editArticle}/>
-      </div>
-  );
+        <div className="App">
+            <h1>React and Django</h1>
+            <ArticleList articles={articles} editBtn={editBtn}/>
+            {editArticle ? <Form article={editArticle}/> : null}
+        </div>
+    );
 }
 
 export default App;
