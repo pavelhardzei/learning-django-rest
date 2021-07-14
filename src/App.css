@@ -9,6 +9,10 @@
   color: #61dafb;
 }
 
+.hrclass {
+  background-color: red;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
