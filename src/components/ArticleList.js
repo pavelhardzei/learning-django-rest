@@ -14,11 +14,11 @@ export const ArticleList = (props) => {
                         <h2>{article.title}</h2>
                         <p>{article.description}</p>
 
-                        <div className="row">
-                            <div className="col-md-1">
+                        <div>
+                            <div className="d-inline m-2">
                                 <button className="btn btn-primary" onClick={() => editBtn(article)}>Update</button>
                             </div>
-                            <div className="col">
+                            <div className="d-inline">
                                 <button className="btn btn-danger">Delete</button>
                             </div>
                         </div>
