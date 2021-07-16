@@ -24,11 +24,22 @@ function App() {
         setEditArticle(article)
     }
 
+    const updatedInformation = (updated) => {
+        const new_articles = articles.map(article => {
+            if (updated.id === article.id)
+                return updated
+            else
+                return article
+        })
+
+        setArticles(new_articles)
+    }
+
     return (
         <div className="App">
             <h1>React and Django</h1>
             <ArticleList articles={articles} editBtn={editBtn}/>
-            {editArticle ? <Form article={editArticle}/> : null}
+            {editArticle ? <Form article={editArticle} updatedInformation={updatedInformation}/> : null}
         </div>
     );
 }
