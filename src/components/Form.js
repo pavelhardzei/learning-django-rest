@@ -16,6 +16,11 @@ function Form(props) {
             .then(resp => props.updatedInformation(resp))
     }
 
+    const insertArticle = () => {
+        APIService.InsertArticle({title, description})
+            .then(resp => props.insertedInformation(resp))
+    }
+
     return (
         <div>
             {props.article ? (
@@ -27,7 +32,11 @@ function Form(props) {
                     <label htmlFor="description">Description</label>
                     <textarea className="form-control" id="description" rows="5" placeholder="Enter the description"
                               value={description} onChange={e => setDescription(e.target.value)}/>
-                    <button onClick={updateArticle} className="btn btn-success mt-2">Update article</button>
+                    {
+                        props.article.id ? <button onClick={updateArticle} className="btn btn-success mt-2">
+                            Update article</button> :
+                            <button onClick={insertArticle} className="btn btn-success mt-2">Insert article</button>
+                    }
                 </div>
             ): null}
         </div>

@@ -35,11 +35,28 @@ function App() {
         setArticles(new_articles)
     }
 
+    const articleForm = () => {
+        setEditArticle({title: '', description: ''})
+    }
+
+    const insertedInformation = (article) => {
+        const new_articles = [...articles, article]
+        setArticles(new_articles)
+    }
+
     return (
         <div className="App">
-            <h1>React and Django</h1>
+            <div className="row">
+                <div className="col">
+                    <h1>React and Django</h1>
+                </div>
+                <div className="col">
+                    <button onClick={articleForm} className="btn btn-primary">Insert Article</button>
+                </div>
+            </div>
             <ArticleList articles={articles} editBtn={editBtn}/>
-            {editArticle ? <Form article={editArticle} updatedInformation={updatedInformation}/> : null}
+            {editArticle ? <Form article={editArticle} updatedInformation={updatedInformation}
+                                 insertedInformation={insertedInformation}/> : null}
         </div>
     );
 }
