@@ -1,9 +1,15 @@
 import React from 'react';
+import APIService from "./APIService";
 
 export const ArticleList = (props) => {
 
     const editBtn = (article) => {
         props.editBtn(article)
+    }
+
+    const deleteBtn = (article) => {
+        APIService.DeleteArticle(article.id)
+            .then(() => props.deleteBtn(article))
     }
 
     return (
@@ -19,7 +25,7 @@ export const ArticleList = (props) => {
                                 <button className="btn btn-primary" onClick={() => editBtn(article)}>Update</button>
                             </div>
                             <div className="d-inline">
-                                <button className="btn btn-danger">Delete</button>
+                                <button onClick={() => deleteBtn(article)} className="btn btn-danger">Delete</button>
                             </div>
                         </div>
 

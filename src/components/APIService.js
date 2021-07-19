@@ -24,6 +24,18 @@ export default class APIService {
         ).then(resp => resp.json())
     }
 
+    static DeleteArticle(article_id) {
+        return fetch(`http://localhost:8000/articles/${article_id}/`,
+            {
+                "method": "DELETE",
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Token 46cd8a8707b84bc33595cb202bb036cdca27858c'//
+                }
+            }
+        )
+    }
+
     static LoginUser(body) {
         return fetch(`http://localhost:8000/api-auth/login/`,
             {
