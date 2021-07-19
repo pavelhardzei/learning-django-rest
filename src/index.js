@@ -6,13 +6,16 @@ import {Login} from "./components/Login";
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {Route, BrowserRouter} from "react-router-dom";
+import {CookiesProvider} from "react-cookie";
 
 function Router() {
     return (
-        <BrowserRouter>
-            <Route exact path = "/" component={Login}/>
-            <Route exact path = "/articles/" component={App}/>
-        </BrowserRouter>
+        <CookiesProvider>
+            <BrowserRouter>
+                <Route exact path = "/" component={Login}/>
+                <Route exact path = "/articles/" component={App}/>
+            </BrowserRouter>
+        </CookiesProvider>
     )
 }
 
